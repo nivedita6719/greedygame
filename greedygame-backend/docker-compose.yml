@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo:6
+    restart: unless-stopped
+    volumes:
+      - mongo-data:/data/db
+    ports:
+      - "27017:27017"
+  backend:
+    build: .
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/greedygame
+      - JWT_SECRET=replace_with_secret
+      - GOOGLE_CLIENT_ID=your_google_client_id
+      - FRONTEND_URL=http://localhost:3000
+      - PORT=4000
+    ports:
+      - "4000:4000"
+    depends_on:
+      - mongo
+volumes:
+  mongo-data:

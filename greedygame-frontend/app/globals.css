@@ -1,0 +1,51 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+@import "../styles/globals-polish.css";
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --gg-green: #11b981;
+  --muted: #6b7280;
+  --card-shadow: 0 10px 30px rgba(16,24,40,0.06);
+}
+html,body,#root{height:100%}
+body{
+  @apply bg-gray-50 text-gray-800 antialiased;
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* Form & Layout helpers */
+.login-left {
+  background-image: url('/assets/library.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.form-card{ @apply bg-white rounded-2xl shadow-card-lg p-8; }
+.google-btn{ @apply w-full border rounded-lg py-3 flex items-center justify-center gap-3 text-sm; background:white; }
+.hr-or{ display:flex; align-items:center; gap:12px; color:#9ca3af; }
+.hr-or > hr{ @apply flex-1 border-t border-gray-200; }
+.hr-or > span{ @apply text-sm text-gray-400; }
+.form-input{ @apply w-full border rounded-lg px-3 py-3 text-sm; border-color:#e6e6e6; }
+.btn-primary{ @apply w-full text-white py-3 rounded-lg font-semibold hover:opacity-95; }
+
+/* Dashboard */
+.card{ @apply bg-white rounded-2xl; box-shadow: var(--card-shadow); }
+.dashboard-cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; }
+.stat-card{ @apply p-6 min-h-[120px]; }
+.stat-title{ @apply text-sm text-gray-500; }
+.stat-number{ @apply text-4xl font-extrabold text-gray-900 mt-3; }
+
+.todos-panel{ @apply mt-8 rounded-2xl overflow-hidden; box-shadow: var(--card-shadow); background:white; }
+.todos-header{ @apply flex justify-between items-center px-6 py-4 border-b border-gray-100; }
+.todos-table{ @apply w-full text-sm; }
+.todos-table thead th{ @apply text-xs text-gray-500 font-medium p-4 text-left; }
+.todo-row{ border-top: 1px dashed #f0f0f0; }
+
+@media (max-width:1024px){
+  .dashboard-cards{ grid-template-columns: 1fr; }
+  .login-left{ display:none; }
+}

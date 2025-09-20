@@ -1,0 +1,14 @@
+
+
+/* ---------- UI Polish ---------- */
+
+/* subtle inner shadow for cards */
+.card { box-shadow: 0 12px 30px rgba(16,24,40,0.06); }
+
+/* small helper for drawer backdrop */
+.backdrop-blur { backdrop-filter: blur(2px); }
+
+/* tiny responsive tweak */
+@media (max-width: 640px){
+  aside { width: 100% !important; }
+}
